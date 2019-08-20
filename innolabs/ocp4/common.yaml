@@ -13,3 +13,7 @@ admin_user: opentlc-mgr
 install_ocp4: true
 install_lets_encrypt_certificates: true
 aws_region: us-east-1
+
+agnosticv_meta:
+  params_to_variables:
+    aws_region: us-east-1
