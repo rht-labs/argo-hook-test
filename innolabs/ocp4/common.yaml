@@ -1,20 +1,41 @@
 ---
-platform: RHPDS
-env_type: ocp4-workshop
-idm_dns_name: "idm-{{ guid }}-0"
-idm_domain:
-install_ipa_client: false
-repo_method: file
-software_to_deploy: none
-install_ftl: false
-install_student_user: true
-install_idm: htpasswd
 admin_user: opentlc-mgr
-install_ocp4: true
-install_lets_encrypt_certificates: true
-aws_region: us-east-1
-
+admin_password: 'r3dh4t1!'
 agnosticv_meta:
   catalog_parameters:
     - name: aws_region
       value: us-east-1
+    - name: osrelease
+      value: 4.1.9
+aws_access_key_id:
+  secretKey: aws_secret_key_id
+  secretName: innolabs
+aws_secret_access_key:
+  secretKey: aws_secret_access_key
+  secretName: innolabs
+aws_vpc_name: "{{ guid }}{{ subdomain_base_suffix }}"
+babylon_deployer_entry_point: ansible/main.yml
+babylon_deployer_type: agnosticd
+babylon_organization: labs
+babylon_scm_reference: development
+babylon_scm_type: git
+babylon_scm_url: https://github.com/redhat-cop/agnosticd.git
+env_type: ocp4-workshop
+platform: labs
+idle_after_deploy: 24000
+idle_after_start: 24000
+idm_dns_name: "idm-{{ guid }}-0"
+idm_domain:
+install_ftl: false
+install_idm: htpasswd
+install_ipa_client: false
+install_lets_encrypt_certificates: true
+install_ocp4: true
+install_student_user: true
+repo_method: file
+software_to_deploy: none
+student_name: lab-user
+student_password: 'r3dh4t1!'
+
+ocp4_token: >-
+  {"auths":{"cloud.openshift.com":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K3Jobmdwc3BhYnJhaGFtMWhodGttbmk0MXRxM285cHhvcjBqYTViZng0OjVaRlQwTE1PRk43ME5VV0JDVTQ2QUQwMlkzWkY1OTUyRTFJUTVaTFZRNk1YTDlVN0MwMjY1TUZZV0NMOFpZNjY=","email":"pabraham@redhat.com"},"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K3Jobmdwc3BhYnJhaGFtMWhodGttbmk0MXRxM285cHhvcjBqYTViZng0OjVaRlQwTE1PRk43ME5VV0JDVTQ2QUQwMlkzWkY1OTUyRTFJUTVaTFZRNk1YTDlVN0MwMjY1TUZZV0NMOFpZNjY=","email":"pabraham@redhat.com"},"registry.connect.redhat.com":{"auth":"NTAwODMxMTh8dWhjLTFISFRrTW5pNDF0UTNPOVB4T1IwSmE1QmZYNDpleUpoYkdjaU9pSlNVelV4TWlKOS5leUp6ZFdJaU9pSTFZekV4WVRFNE1EQmtOVGMwWXpobVlqQmtNRFEzTW1ZeE9XSmpObUl4T1NKOS5CYmVYamhpY2kyNEZ0cm1JYk91MlBxU19wNExoeGpySXowSDZJWFlIZnZhU0toOW9iZXhyYmlGZzhqb3NURnA4NWJTbDJwaFYzYjNLMmxjNWZIT2hwRGU0UWp3dnVHcmVrUDVXVFNIazNneFIzQUl4cXNQbzVZQjZsdlQ5ci1xaUdCbzZPb2JCVGloV1VEUEI5VXBvR0NLdGxERWdnWFo4ZmNZcmFXRDJGZ3FzNlZ3UUZITm1KMkNlelF0TWpyM2Myemo0c3dnODUydWhkdXN3ZjRYSHFfX3dLM1VkekNkODdjSkxHbWh5NVdTYXFVc0U3WjBsUEFxc18yMC12Zk9UZUwtWVBFSmw4TXVlVjR0SXVubldzc3pFSFdQWnNyc3FQZGQ3b0tKZ2xFb0pvbkF0MTdCbmNLT3ZtZkxWVzhvZjBIYW1qZTRMZ2gxekZqN3JVbERpbjdfMUFoMklKQ2VRQVVvWHBrcXAxM29ISGtxalFKajB2bU80MnFocGw3NVdLMk5HZks3eFNPX2dPX0x5MU93RHdiQmlQVFVEOWhyc0ZkdDRKX2NTa2FsT19kSTFPVndwc3F5VzN6eDlFdk1sMGNMMkw3dVJ2NFhrMktGMVhJOEJTWkZWX1o0UUQ0dmxDa2lnVjd3dWNwdEN6dDB5WExRcnBEejl3T3ZhUDZ4cUl0MWR4aGF5elRuOFdILWtraTE3Qm5kZU1BbGtHQkc0OUFCcFNPY0pFMGdmbFlaeFVxeDd4ODkxTjU4VXJSTG5udlhaYXhZR0VhZUJGTDBiWUtNTUxBZ3owN3NVX3lmNXFTZHpKS1ZuWTFiSUl1NXduaEllRHRsNmJYNExIUU9qSHBib3R4Yl8tQlNsdXcwVnl1UzBCRUtpT1R6U0ljVU9CYkh6QmJ5WEN1OA==","email":"pabraham@redhat.com"},"registry.redhat.io":{"auth":"NTAwODMxMTh8dWhjLTFISFRrTW5pNDF0UTNPOVB4T1IwSmE1QmZYNDpleUpoYkdjaU9pSlNVelV4TWlKOS5leUp6ZFdJaU9pSTFZekV4WVRFNE1EQmtOVGMwWXpobVlqQmtNRFEzTW1ZeE9XSmpObUl4T1NKOS5CYmVYamhpY2kyNEZ0cm1JYk91MlBxU19wNExoeGpySXowSDZJWFlIZnZhU0toOW9iZXhyYmlGZzhqb3NURnA4NWJTbDJwaFYzYjNLMmxjNWZIT2hwRGU0UWp3dnVHcmVrUDVXVFNIazNneFIzQUl4cXNQbzVZQjZsdlQ5ci1xaUdCbzZPb2JCVGloV1VEUEI5VXBvR0NLdGxERWdnWFo4ZmNZcmFXRDJGZ3FzNlZ3UUZITm1KMkNlelF0TWpyM2Myemo0c3dnODUydWhkdXN3ZjRYSHFfX3dLM1VkekNkODdjSkxHbWh5NVdTYXFVc0U3WjBsUEFxc18yMC12Zk9UZUwtWVBFSmw4TXVlVjR0SXVubldzc3pFSFdQWnNyc3FQZGQ3b0tKZ2xFb0pvbkF0MTdCbmNLT3ZtZkxWVzhvZjBIYW1qZTRMZ2gxekZqN3JVbERpbjdfMUFoMklKQ2VRQVVvWHBrcXAxM29ISGtxalFKajB2bU80MnFocGw3NVdLMk5HZks3eFNPX2dPX0x5MU93RHdiQmlQVFVEOWhyc0ZkdDRKX2NTa2FsT19kSTFPVndwc3F5VzN6eDlFdk1sMGNMMkw3dVJ2NFhrMktGMVhJOEJTWkZWX1o0UUQ0dmxDa2lnVjd3dWNwdEN6dDB5WExRcnBEejl3T3ZhUDZ4cUl0MWR4aGF5elRuOFdILWtraTE3Qm5kZU1BbGtHQkc0OUFCcFNPY0pFMGdmbFlaeFVxeDd4ODkxTjU4VXJSTG5udlhaYXhZR0VhZUJGTDBiWUtNTUxBZ3owN3NVX3lmNXFTZHpKS1ZuWTFiSUl1NXduaEllRHRsNmJYNExIUU9qSHBib3R4Yl8tQlNsdXcwVnl1UzBCRUtpT1R6U0ljVU9CYkh6QmJ5WEN1OA==","email":"pabraham@redhat.com"}}}
