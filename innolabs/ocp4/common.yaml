@@ -6,7 +6,7 @@ agnosticv_meta:
     - name: aws_region
       value: us-east-1
     - name: osrelease
-      value: 4.1.9
+      value: 4.1.0
 aws_access_key_id:
   secretKey: aws_secret_key_id
   secretName: innolabs
