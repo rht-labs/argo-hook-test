@@ -17,18 +17,20 @@ __meta__:
     scm_type: git
     scm_url: https://github.com/redhat-cop/agnosticd.git
     type: agnosticd
+  secrets:
+    - innolabs
   tower:
     organization: labs
 
 # AgnosticD
 admin_user: opentlc-mgr
 admin_password: 'r3dh4t1!'
-aws_access_key_id:
-  secretKey: aws_secret_key_id
-  secretName: innolabs
-aws_secret_access_key:
-  secretKey: aws_secret_access_key
-  secretName: innolabs
+#aws_access_key_id:
+#  secretKey: aws_secret_key_id
+#  secretName: innolabs
+#aws_secret_access_key:
+#  secretKey: aws_secret_access_key
+#  secretName: innolabs
 aws_vpc_name: "{{ guid }}{{ subdomain_base_suffix }}"
 env_type: ocp4-workshop
 platform: labs
