@@ -11,19 +11,18 @@ __meta__:
       - name: osrelease
         value: 4.1.0
   deployer:
-    entry_point: ansible/main.yml
-    type: agnosticd
     babylon_organization: labs
+    entry_point: ansible/main.yml
     scm_ref: development
-    scm_tag_prefix: ''
     scm_type: git
     scm_url: https://github.com/redhat-cop/agnosticd.git
+    type: agnosticd
   tower:
     organization: labs
-admin_user: opentlc-mgr
-admin_password: 'r3dh4t1!'
 
 # AgnosticD
+admin_user: opentlc-mgr
+admin_password: 'r3dh4t1!'
 aws_access_key_id:
   secretKey: aws_secret_key_id
   secretName: innolabs
