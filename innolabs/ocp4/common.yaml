@@ -2,42 +2,50 @@
 # Babylon
 __meta__:
   catalog:
-    namespace: openshift
-    description: >-
+    description: |-
       Deploy Openshift 4 (Small)
+      The cluster will have the following configuration:
+      3 x master nodes (m5.xlarge)
+      1 x worker nodes (m5.2xlarge)
+    message: |-
+      Your Openshift 4 cluster will now be provisioned. 
+    namespace: openshift
     parameters:
       - name: aws_region
+        description: The AWS region to provision in
+        displayName: AWS Region
         value: us-east-1
+        required: true
       - name: osrelease
+        description: The Openshift version to provision
+        displayName: Openshift version
         value: 4.1.0
+        required: true
+      - name: email
+        description: Requester e-mail
+        displayName: E-mail address
+        required: true
+      - name: shutdown_after
+        description: Cluster lifespan (30d, 3d, 3h)
+        displayName: Cluster lifespan (30d, 3d, 3h)
+        required: false
+        value: 30d
   deployer:
-    babylon_organization: labs
     entry_point: ansible/main.yml
-    scm_ref: development
+    scm_ref: ocp4-workshop-prod-1.28
     scm_type: git
     scm_url: https://github.com/redhat-cop/agnosticd.git
     type: agnosticd
+  schedule_destroy_after_provision: 30d
   secrets:
     - innolabs
-  tower:
-    organization: labs
 
 # AgnosticD
 admin_user: opentlc-mgr
 admin_password: 'r3dh4t1!'
-#aws_access_key_id:
-#  secretKey: aws_secret_key_id
-#  secretName: innolabs
-#aws_secret_access_key:
-#  secretKey: aws_secret_access_key
-#  secretName: innolabs
 aws_vpc_name: "{{ guid }}{{ subdomain_base_suffix }}"
 env_type: ocp4-workshop
 platform: labs
-idle_after_deploy: 24000
-idle_after_start: 24000
-idm_dns_name: "idm-{{ guid }}-0"
-idm_domain:
 install_ftl: false
 install_idm: htpasswd
 install_ipa_client: false
@@ -46,7 +54,7 @@ install_ocp4: true
 install_student_user: true
 repo_method: file
 software_to_deploy: none
-student_name: lab-user
+student_name: lab
 student_password: 'r3dh4t1!'
 
 ocp4_token: >-
