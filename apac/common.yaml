@@ -1,0 +1,13 @@
+---
+catalog_namespace: agnosticv-innolabs
+cloud_provider: ec2
+cloud_tags:
+  env_type: "{{ env_type }}"
+  guid: "{{ guid }}"
+  course_name: "{{ course_name | d('unknown') }}"
+  platform: "{{ platform | d('unknown') }}"
+  purpose: "{{ purpose | d('unknown') }}"
+key_name: gpte-key-1
+own_repo_path: http://d3s3zqyaz8cp2d.cloudfront.net/repos/ocp/{{osrelease}}
+subdomain_base_suffix: .apac.rht-labs.com
+HostedZoneId: Z73HGNYGMZHEC
