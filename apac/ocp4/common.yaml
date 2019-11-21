@@ -1,35 +1,6 @@
 ---
 # Babylon
 __meta__:
-  catalog:
-    description: |-
-      Deploy Openshift 4 (Small)
-      The cluster will have the following configuration:
-      3 x master nodes (m5.xlarge)
-      1 x worker nodes (m5.2xlarge)
-    message: |-
-      Your Openshift 4 cluster will now be provisioned. 
-    namespace: openshift
-    parameters:
-      - name: aws_region
-        description: The AWS region to provision in
-        displayName: AWS Region
-        value: ap-southeast-1
-        required: true
-      - name: osrelease
-        description: The Openshift version to provision
-        displayName: Openshift version
-        value: 4.1.0
-        required: true
-      - name: email
-        description: Requester e-mail
-        displayName: E-mail address
-        required: true
-      - name: shutdown_after
-        description: Cluster lifespan (30d, 3d, 3h)
-        displayName: Cluster lifespan (30d, 3d, 3h)
-        required: false
-        value: 30d
   deployer:
     entry_point: ansible/main.yml
     scm_ref: ocp4-workshop-prod-1.28
@@ -38,7 +9,7 @@ __meta__:
     type: agnosticd
   schedule_destroy_after_provision: 30d
   secrets:
-    - innolabs-apac
+    - innolabs
 
 # AgnosticD
 admin_user: opentlc-mgr
