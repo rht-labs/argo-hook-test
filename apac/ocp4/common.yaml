@@ -9,7 +9,7 @@ __meta__:
     type: agnosticd
   schedule_destroy_after_provision: 30d
   secrets:
-    - innolabs
+    - innolabs-apac
 
 # AgnosticD
 admin_user: opentlc-mgr
