@@ -16,7 +16,7 @@ __meta__:
         displayName: AWS Region
         value: us-east-1
         required: true
-      - name: osrelease
+      - name: ocp4_installer_version
         description: The Openshift version to provision
         displayName: Openshift version
         value: 4.1.0
@@ -32,7 +32,7 @@ __meta__:
         value: 30d
   deployer:
     entry_point: ansible/main.yml
-    scm_ref: ocp4-workshop-prod-1.28
+    scm_ref: ocp4-workshop-prod-1.29
     scm_type: git
     scm_url: https://github.com/redhat-cop/agnosticd.git
     type: agnosticd
@@ -50,6 +50,7 @@ install_ftl: false
 install_idm: htpasswd
 install_ipa_client: false
 install_lets_encrypt_certificates: true
+_lets_encrypt_certificates_install_api: true
 install_ocp4: true
 install_student_user: true
 repo_method: file
