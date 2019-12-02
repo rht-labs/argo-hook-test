@@ -25,18 +25,12 @@ __meta__:
         description: Requester e-mail
         displayName: E-mail address
         required: true
-      - name: shutdown_after
-        description: Cluster lifespan (30d, 3d, 3h)
-        displayName: Cluster lifespan (30d, 3d, 3h)
-        required: false
-        value: 30d
   deployer:
     entry_point: ansible/main.yml
     scm_ref: ocp4-workshop-prod-1.29
     scm_type: git
     scm_url: https://github.com/redhat-cop/agnosticd.git
     type: agnosticd
-  schedule_destroy_after_provision: 30d
   secrets:
     - innolabs
 
