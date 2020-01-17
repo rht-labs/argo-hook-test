@@ -2,6 +2,7 @@ apiVersion: poolboy.gpte.redhat.com/v1
 kind: ResourceClaim
 metadata:
   generateName: anarchy-subject-
+  name: anarchy-subject-something-something
 spec:
   resources:
   - template:
