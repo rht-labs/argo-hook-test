@@ -1,0 +1,12 @@
+# Default values for ocp-init.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+#aws_region: {OCP_CLOUD_PROVIDER_REGION}
+#ocp4_installer_version: {OCP_VERSION}
+#email: {RESIDENCY_ENGAGEMENT_LEAD_EMAIL}
+
+
+aws_region: us-east-1
+ocp4_installer_version: 4.2
+email: petter@redhat.com

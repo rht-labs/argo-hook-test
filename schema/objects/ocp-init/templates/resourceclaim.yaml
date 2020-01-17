@@ -1,0 +1,21 @@
+apiVersion: poolboy.gpte.redhat.com/v1
+kind: ResourceClaim
+metadata:
+  generateName: anarchy-subject-
+spec:
+  resources:
+  - template:
+      apiVersion: anarchy.gpte.redhat.com/v1
+      kind: AnarchySubject
+      metadata:
+        annotations:
+          poolboy.gpte.redhat.com/resource-provider-name: babylon
+        generateName: innolabs.ocp4.small
+        labels:
+          governor:  innolabs.ocp4.small
+      spec:
+        governor: innolabs.ocp4.small
+        parameters:
+          aws_region: {{ .Values.aws_region }}
+          ocp4_installer_version: {{ .Values.ocp4_installer_version }}
+          email: {{ .Values.email }}
